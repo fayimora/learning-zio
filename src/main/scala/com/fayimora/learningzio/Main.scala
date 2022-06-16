@@ -4,6 +4,6 @@ package learningzio
 @main def Main(args: String*): Unit =
   println("─" * 100)
 
-  println("hello world")
+  println("Welcome to my ZIO playground!")
 
   println("─" * 100)
