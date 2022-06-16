@@ -3,7 +3,6 @@ package com.fayimora.learningzio.github
 import zio.*
 import zio.Console.printLine
 import zio.json.*
-import zhttp.http.*
 
 import GithubUser.*
 case class GithubApiError(message: String) extends Throwable
