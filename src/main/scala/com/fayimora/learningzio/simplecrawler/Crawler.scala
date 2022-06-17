@@ -17,7 +17,7 @@ case class CrawlerImpl(queue: Queue[WebLink], cache: Ref[MutableHashSet[WebLink]
   def run(numOfWorkers: Int, allowedSubDomains: Set[WebLink]): ZIO[Any, IOException, Long] =
     ZStream
       .fromQueueWithShutdown(queue)
-      .tap(wl => printLine(wl))
+      .tap(wl => printLine(pprint.log(wl)))
       .mapZIOPar(numOfWorkers)(wl => crawl(wl, allowedSubDomains))
       .timeout(5.seconds)
       .run(ZSink.count)
