@@ -5,6 +5,8 @@ import zio.test.*
 import zio.test.Assertion.{isEmpty, equalTo}
 
 import scala.collection.mutable.HashSet as MutableHashSet
+import com.fayimora.learningzio.simplecrawler.WebLink
+import com.fayimora.learningzio.simplecrawler.CrawlerImpl
 
 object CrawlerImplSpec extends ZIOSpecDefault:
   val localWeblink = WebLink("http://localhost:8888/test-page.html")
