@@ -1,4 +1,4 @@
-package com.fayimora.simplecrawler
+package com.fayimora.learningzio.simplecrawler
 
 import org.jsoup.Jsoup
 import zio.*

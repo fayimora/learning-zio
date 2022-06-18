@@ -1,3 +1,3 @@
-package com.fayimora.simplecrawler
+package com.fayimora.learningzio.simplecrawler
 
 case class WebLink(url: String)
