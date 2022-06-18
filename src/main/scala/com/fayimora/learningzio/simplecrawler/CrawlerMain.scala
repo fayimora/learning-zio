@@ -1,5 +1,6 @@
-package com.fayimora.simplecrawler
+package com.fayimora.learningzio.simplecrawler
 
+import com.fayimora.learningzio.AppConfig
 import com.typesafe.config.ConfigFactory
 import zio.*
 import zio.Console.{printLine, printLineError}
@@ -16,7 +17,8 @@ object CrawlerMain extends ZIOAppDefault:
   def run =
     for
       // Read crawler config values
-      conf <- CrawlerConfig.config
+      appConf <- AppConfig.config
+      conf = appConf.simpleCrawler
       initialWeblink = WebLink(conf.mainUrl)
       allowedSubDomains = conf.allowedSubDomains.map(WebLink.apply).toSet
 
