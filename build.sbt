@@ -21,6 +21,7 @@ lazy val `learning-zio` =
     .in(file("."))
     .settings(name := "learning-zio")
     .settings(commonSettings)
+    .settings(workaroundForTrapExit)
     .settings(dependencies)
 
 lazy val commonSettings = commonScalacOptions ++ Seq(
@@ -57,4 +58,10 @@ lazy val dependencies = Seq(
     "dev.zio" %% "zio-test-sbt" % ZIOVersion,
     "dev.zio" %% "zio-test-magnolia" % ZIOVersion,
   ).map(_ % Test),
+)
+
+lazy val workaroundForTrapExit = Seq(
+  Compile / run / fork := true,
+  Compile / run / connectInput := true,
+  Compile / run / outputStrategy := Some(StdoutOutput),
 )
