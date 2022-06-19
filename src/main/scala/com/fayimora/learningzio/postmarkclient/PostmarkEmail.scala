@@ -2,6 +2,8 @@ package com.fayimora.learningzio.postmarkclient
 
 import java.time.OffsetDateTime
 import java.util.UUID
+import zio.json.JsonDecoder
+import zio.json.DeriveJsonDecoder
 
 
 final case class PostmarkEmail(from: String,
@@ -14,3 +16,10 @@ final case class PostmarkEmailResponse(to: String,
                                       messageID: UUID,
                                       errorCode: Int,
                                       message: String)
+
+
+object PostmarkEmail:
+  implicit val decoder: JsonDecoder[PostmarkEmail] = DeriveJsonDecoder.gen[PostmarkEmail]
+
+object PostmarkEmailResponse:
+  implicit val decoder: JsonDecoder[PostmarkEmailResponse] = DeriveJsonDecoder.gen[PostmarkEmailResponse]
