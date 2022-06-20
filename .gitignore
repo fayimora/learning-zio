@@ -10,6 +10,7 @@
 .vscode/
 metals.sbt
 target/
+.env
 
 ### Java template
 # Compiled class file

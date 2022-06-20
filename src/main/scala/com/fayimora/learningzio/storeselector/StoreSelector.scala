@@ -5,8 +5,8 @@ import zio.*
 object StoreSelector:
   def apply[T](tasks: List[Task[T]], delay: Duration): ZIO[Any, Throwable, T] =
     tasks match
-      case Nil => ZIO.fail(new IllegalArgumentException("No stores available"))
-      case task :: Nil => task
+      case Nil                    => ZIO.fail(new IllegalArgumentException("No stores available"))
+      case task :: Nil            => task
       case task :: remainingTasks =>
         // use single element queue to know if there was a failure
         Queue.bounded[Unit](1).flatMap { taskFailedQueue =>
