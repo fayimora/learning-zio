@@ -2,7 +2,7 @@ package com.fayimora.learningzio
 
 import zio.*, Console.*
 
-object ZIOFibresPlayground extends ZIOAppDefault {
+object ZIOFibresPlayground extends ZIOAppDefault:
   override def run =
     val fayiShower      = ZIO.succeed("Fayi is taking a shower")
     val joShower        = ZIO.succeed("Jo is taking a shower")
@@ -31,4 +31,3 @@ object ZIOFibresPlayground extends ZIOAppDefault {
 
     program.exitCode
 
-}

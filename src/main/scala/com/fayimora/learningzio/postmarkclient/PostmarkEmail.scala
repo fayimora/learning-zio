@@ -24,4 +24,5 @@ object PostmarkEmail:
   implicit val decoder: JsonDecoder[PostmarkEmail] = DeriveJsonDecoder.gen[PostmarkEmail]
 
 object PostmarkEmailResponse:
-  implicit val decoder: JsonDecoder[PostmarkEmailResponse] = DeriveJsonDecoder.gen[PostmarkEmailResponse]
+  implicit val decoder: JsonDecoder[PostmarkEmailResponse] =
+    DeriveJsonDecoder.gen[PostmarkEmailResponse]
