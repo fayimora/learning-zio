@@ -42,14 +42,16 @@ val ZIOVersion = "2.0.0-RC6"
 lazy val dependencies = Seq(
   libraryDependencies ++= Seq(
     // main dependencies
-    "dev.zio"     %% "zio"                 % ZIOVersion,
-    "dev.zio"     %% "zio-json"            % "0.3.0-RC8",
-    "com.lihaoyi" %% "requests"            % "0.7.0",
-    "com.lihaoyi" %% "pprint"              % "0.7.0",
-    "org.jsoup"    % "jsoup"               % "1.15.1",
-    "dev.zio"     %% "zio-config"          % "3.0.0-RC9",
-    "dev.zio"     %% "zio-config-typesafe" % "3.0.0-RC9",
-    "dev.zio"     %% "zio-config-magnolia" % "3.0.0-RC9",
+    "dev.zio"                       %% "zio"                 % ZIOVersion,
+    "dev.zio"                       %% "zio-json"            % "0.3.0-RC8",
+    "com.lihaoyi"                   %% "requests"            % "0.7.0",
+    "com.lihaoyi"                   %% "pprint"              % "0.7.0",
+    "org.jsoup"                      % "jsoup"               % "1.15.1",
+    "dev.zio"                       %% "zio-config"          % "3.0.0-RC9",
+    "dev.zio"                       %% "zio-config-typesafe" % "3.0.0-RC9",
+    "dev.zio"                       %% "zio-config-magnolia" % "3.0.0-RC9",
+    "com.softwaremill.sttp.client3" %% "core"                % "3.6.2",
+    "com.softwaremill.sttp.client3" %% "zio"                 % "3.6.2",
   ),
   libraryDependencies ++= Seq(
     org.scalatest.scalatest,
@@ -59,6 +61,7 @@ lazy val dependencies = Seq(
     "dev.zio" %% "zio-test-magnolia" % ZIOVersion,
   ).map(_ % Test),
 )
+excludeDependencies += "org.scala-lang.modules" % "scala-collection-compat_2.13"
 
 lazy val workaroundForTrapExit = Seq(
   Compile / run / fork           := true,
